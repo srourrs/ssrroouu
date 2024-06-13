@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلبات العملاء</title>
+    <style>
+        
+        .orders {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            background: #f8f9fa;
+        }
+        .orders h2 {
+            text-align: center;
+        }
+        .order {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+        }
+        .order p {
+            margin: 5px 0;
+        }
+        .delete-button {
+            background-color: #00FF00;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="orders">
+        <h2>طلبات الزبائن شركة حلاوة سرور</h2>
+        <div id="order-list"></div>
+    </div>
+
+    <script>
+        function loadOrders() {
+            let orders = JSON.parse(localStorage.getItem('orders')) || [];
+            let orderList = document.getElementById('order-list');
+            orderList.innerHTML = '';
+            
+            orders.forEach(function(order, index) {
+                let orderDiv = document.createElement('div');
+                orderDiv.className = 'order';
+                
+                let customerInfo = `<p><strong>الاسم:</strong> ${order.name}</p>
+                                    <p><strong>رقم الهاتف:</strong> ${order.phone}</p>
+                                    <p><strong>العنوان:</strong> ${order.address}</p>`;
+                
+                let orderItems = '<p><strong>المنتجات:</strong></p><ul>';
+                order.cart.forEach(function(item) {
+                    orderItems += `<li>${item.product} - الكمية: ${item.quantity}</li>`;
+                });
+                orderItems += '</ul>';
+
+                let deleteButton = `<button class="delete-button" onclick="deleteOrder(${index})">حذف الطلب</button>`;
+                
+                orderDiv.innerHTML = customerInfo + orderItems + deleteButton;
+                orderList.appendChild(orderDiv);
+            });
+        }
+
+        function deleteOrder(index) {
+            let orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders.splice(index, 1); // حذف الطلب من القائمة
+            localStorage.setItem('orders', JSON.stringify(orders)); // تحديث localStorage
+            loadOrders(); // إعادة تحميل الطلبات لتحديث العرض
+        }
+
+        window.onload = loadOrders;
+    </script>
+</body>
+</html>

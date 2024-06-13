@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر سرور</title>
+    <style>
+        
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 19px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+        .carousel_ {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .item img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        .item button {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .suggestions {
+            text-align: right;
+            padding: 20px;
+            font-size: 35px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">متجر سرور</div>
+    <div class="carousel">
+        <img src="imag/لانه منحبك.jpg" alt="صورة 1" style="display: block;">
+        <img src="imag/اليوم.jpg" alt="صورة 4">
+        <img src="imag/سفرة.jpg" alt="صورة 2">
+        <img src="imag/بكل مكان.jpg" alt="صورة 3">
+    </div>
+    <div class="suggestions">
+
+        الاصناف
+    </div>
+    <div class="container">
+        
+        <div class="item">
+            <img src="d:\منتجات سرور\1كيلو طحينة.jpg" alt="طحينة سرور">
+            <a href="halawasrour.html">
+                <button>طحينة سرور</button>
+            </a>
+        </div>
+        <div class="item">
+            <img src="d:\منتجات سرور\2200.jpg" alt="حلاوة سرور">
+            <a href="halawasrour.html">
+                <button>حلاوة سرور</button>
+            </a>
+        </div>
+        <div class="item">
+            <img src="d:\منتجات سرور\شوكولا 600.jpg" alt="شوكولا سرور">
+            <button>شوكولا سرور</button>
+        </div>
+        <div class="item">
+            <img src="d:\منتجات سرور\فراولة كبير.jpg" alt="مربى سرور">
+            <button>مربى سرور</button>
+        </div>
+        <div class="item">
+            <img src="d:\omar\My project\Assets\srour\صورة واتساب بتاريخ 1445-06-02 في 14.37.22_e60c7f54.jpg" alt="منتجاتنا">
+            <button>منتجاتنا</button>
+        </div>
+        <div class="item">
+            <img src="d:\منتجات سرور\كاكاو.jpg" alt="مشتقات سرور">
+            <button>مشتقات سرور</button>
+        </div>
+        
+    </div>
+    <div class="suggestions">
+        اقتراحات قد تعجبك
+    </div>
+    
+   
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        setInterval(nextImage, 3000);
+    </script>
+</body>
+</html>

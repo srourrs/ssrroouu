@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عربة التسوق</title>
+    <style>
+        .cart {
+            text-align: center;
+        }
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cart li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+        .cart button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <h1>عربة التسوق</h1>
+        <ul id="cart-items"></ul>
+        <button onclick="confirmOrder()">تأكيد الطلب</button>
+    </div>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(function(item, index) {
+                let li = document.createElement('li');
+                li.textContent = `${item.product} - الكمية: ${item.quantity}`;
+                cartItems.appendChild(li);
+            });
+        }
+
+        function confirmOrder() {
+            window.location.href = 'customer_details.html';
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

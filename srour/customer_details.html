@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات العميل</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .submit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .total {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="d:\منتجات سرور\2233-removebg-preview (1).png" alt="Logo">
+        </div>
+        <h2>بيانات العميل</h2>
+        <form id="customer-form" onsubmit="submitOrder(event)">
+            <div>
+                <label for="name">الاسم:</label>
+                <input type="text" id="name" required>
+                <span id="name-error" class="error">الاسم مطلوب</span>
+            </div>
+            <div>
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" required oninput="validatePhone(this)" maxlength="10" placeholder="07XXXXXXXX">
+                <span id="phone-error" class="error">رقم الهاتف يجب أن يحتوي على 10 أرقام</span>
+            </div>
+            <div>
+                <label for="city">المدينة:</label>
+                <input type="text" id="city" required>
+                <span id="city-error" class="error">المدينة مطلوبة</span>
+            </div>
+            <div>
+                <label for="street">المنطقة:</label>
+                <input type="text" id="street" required>
+                <span id="street-error" class="error">الشارع مطلوب</span>
+            </div>
+            <div>
+                <label for="area">الشارع:</label>
+                <input type="text" id="area" required>
+                <span id="area-error" class="error">المنطقة مطلوبة</span>
+            </div>
+            <div>
+                <input type="checkbox" id="cod" required>
+                <label for="cod">الدفع عند الاستلام</label>
+            </div>
+            <div class="total">
+                <span id="order-total">0</span> دينار + 2 دينار رسوم التوصيل
+            </div>
+            <button type="submit" class="submit-button">إرسال الطلب</button>
+        </form>
+    </div>
+
+    <script>
+        function validatePhone(input) {
+            // Allow only digits and limit to 10 characters
+            input.value = input.value.replace(/[^0-9]/g, '').slice(0, 10);
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+
+            // Reset error messages
+            document.getElementById('name-error').style.display = 'none';
+            document.getElementById('phone-error').style.display = 'none';
+            document.getElementById('city-error').style.display = 'none';
+            document.getElementById('street-error').style.display = 'none';
+            document.getElementById('area-error').style.display = 'none';
+
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let city = document.getElementById('city').value;
+            let street = document.getElementById('street').value;
+            let area = document.getElementById('area').value;
+            let cod = document.getElementById('cod').checked;
+            let isValid = true;
+
+            // Validate name
+            if (name.trim() === '') {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate phone
+            if (phone.length !== 10) {
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate city
+            if (city.trim() === '') {
+                document.getElementById('city-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate street
+            if (street.trim() === '') {
+                document.getElementById('street-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate area
+            if (area.trim() === '') {
+                document.getElementById('area-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate COD
+            if (!cod) {
+                alert('يجب تحديد خيار الدفع عند الاستلام');
+                isValid = false;
+            }
+
+            if (isValid) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+                let order = {
+                    name: name,
+                    phone: phone,
+                    city: city,
+                    street: street,
+                    area: area,
+                    cart: cart,
+                    total: calculateTotal(cart)
+                };
+
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+                localStorage.removeItem('cart'); // إفراغ عربة التسوق بعد تقديم الطلب
+
+                window.location.href = 'confirmation.html'; // إعادة توجيه إلى صفحة تأكيد الطلب
+            }
+        }
+
+        function calculateTotal(cart) {
+            let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            return total + 2; // إضافة رسوم التوصيل 2 دينار
+        }
+
+        // حساب الإجمالي عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = calculateTotal(cart);
+            document.getElementById('order-total').innerText = total - 2; // عرض الإجمالي بدون رسوم التوصيل
+        });
+    </script>
+</body>
+</html>

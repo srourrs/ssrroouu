@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حلاوة سرور</title>
+    <style>
+         .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 16px;
+            max-width: 400px; /* تكبير عرض البطاقة */
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .card-content {
+            margin-top: 16px;
+        }
+
+        .price-add-to-cart {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .price {
+            margin: 0;
+            font-size: 1.2em; /* تكبير حجم الخط للسعر */
+        }
+
+        .add-to-cart {
+            display: inline-block;
+            width: 125px; /* تحديد عرض الزر */
+            padding: 9px; /* تكبير حجم الزر */
+            background-color: #28a745;
+            color: #fff;
+            text-align: center; /* محاذاة النص في الوسط */
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid #28a745; /* إضافة إطار أخضر */
+            font-size: 1.2em; /* تكبير حجم الخط للزر */
+        }
+
+        .add-to-cart:hover {
+            background-color: #28a745;
+            border-color: #28a745; /* تغيير لون الإطار عند التمرير */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            margin: 20px;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+        }
+        .header h2 {
+            margin: 0;
+        }
+        .button-group {
+            display: flex;
+            align-items: center;
+        }
+        .cart-button, .back-button {
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+            border: none; /* Remove borders */
+            background-color: transparent; /* Make background transparent */
+        }
+        .cart-button img {
+            width: 130px; /* Increase width */
+            height: 38px; /* Keep original height */
+        }
+        .back-button img {
+            width: 45px;
+            height: 35px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .card-content {
+            padding: 10px;
+            flex: 1;
+        }
+        .card-content h3 {
+            margin: 0;
+            color: #006400;
+            font-size: 18px;
+        }
+        .card-content p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .card-content .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>حلاوة سرور</h2>
+            <div class="button-group">
+                <a href="cart.html" class="cart-button"><img src="file:///C:/Users/omara/Downloads/عربة.png" alt="العربة"></a>
+                <a href="javascript:goBack();" class="back-button"><img src="file:///C:/Users/omara/Downloads/رجوع.png" alt="الرجوع"></a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+            <div class="card-content">
+                <h3>كاكاو شرشور سرور</h3>
+                <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                <h8 class="price-add-to-cart">
+                    <p class="price">16.000 د.ا</p>
+                    <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                </div>
+            </div>  
+            <div class="card">
+                <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                <div class="card-content">
+                    <h3>كاكاو شرشور سرور</h3>
+                    <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                    <h8 class="price-add-to-cart">
+                        <p class="price">16.000 د.ا</p>
+                        <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                    </div>
+                </div>    
+                <div class="card">
+                    <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                    <div class="card-content">
+                        <h3>كاكاو شرشور سرور</h3>
+                        <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                        <h8 class="price-add-to-cart">
+                            <p class="price">16.000 د.ا</p>
+                            <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                        </div>
+                    </div>  
+                    <div class="card">
+                        <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                        <div class="card-content">
+                            <h3>كاكاو شرشور سرور</h3>
+                            <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                            <h8 class="price-add-to-cart">
+                                <p class="price">16.000 د.ا</p>
+                                <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                            </div>
+                        </div>    
+                        <div class="card">
+                            <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                            <div class="card-content">
+                                <h3>كاكاو شرشور سرور</h3>
+                                <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                <h8 class="price-add-to-cart">
+                                    <p class="price">16.000 د.ا</p>
+                                    <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                </div>
+                            </div>  
+                            <div class="card">
+                                <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                <div class="card-content">
+                                    <h3>كاكاو شرشور سرور</h3>
+                                    <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                    <h8 class="price-add-to-cart">
+                                        <p class="price">16.000 د.ا</p>
+                                        <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                    </div>
+                                </div>    
+                                <div class="card">
+                                    <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                    <div class="card-content">
+                                        <h3>كاكاو شرشور سرور</h3>
+                                        <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                        <h8 class="price-add-to-cart">
+                                            <p class="price">16.000 د.ا</p>
+                                            <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                        </div>
+                                    </div>  
+                                    <div class="card">
+                                        <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                        <div class="card-content">
+                                            <h3>كاكاو شرشور سرور</h3>
+                                            <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                            <h8 class="price-add-to-cart">
+                                                <p class="price">16.000 د.ا</p>
+                                                <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                            </div>
+                                        </div>    
+                                        <div class="card">
+                                            <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                            <div class="card-content">
+                                                <h3>كاكاو شرشور سرور</h3>
+                                                <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                                <h8 class="price-add-to-cart">
+                                                    <p class="price">16.000 د.ا</p>
+                                                    <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                                </div>
+                                            </div>  
+                                            <div class="card">
+                                                <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                                <div class="card-content">
+                                                    <h3>كاكاو شرشور سرور</h3>
+                                                    <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                                    <h8 class="price-add-to-cart">
+                                                        <p class="price">16.000 د.ا</p>
+                                                        <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                                    </div>
+                                                </div>    
+                                                <div class="card">
+                                                    <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                                    <div class="card-content">
+                                                        <h3>كاكاو شرشور سرور</h3>
+                                                        <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                                        <h8 class="price-add-to-cart">
+                                                            <p class="price">16.000 د.ا</p>
+                                                            <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                                        </div>
+                                                    </div>  
+                                                    <div class="card">
+                                                        <img src="d:\منتجات سرور\2200.jpg" alt="كاكاو شرشور سرور">
+                                                        <div class="card-content">
+                                                            <h3>كاكاو شرشور سرور</h3>
+                                                            <p>كاكاو شرشور سرور. يوجد داخل الطرد 100 ظرف</p>
+                                                            <h8 class="price-add-to-cart">
+                                                                <p class="price">16.000 د.ا</p>
+                                                                <a href="halawa.html" class="add-to-cart">إضافة لعربة التسوق</a>
+                                                            </div>
+                                                        </div>    
+            
+            
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".container").classList.add("show");
+        });
+
+        function goBack() {
+            const container = document.querySelector(".container");
+            container.classList.remove("show");
+            container.classList.add("hide");
+
+            setTimeout(function() {
+                history.back();
+            }, 150); // Match this duration with the CSS transition duration
+        }
+    </script>
+</body>
+</html>
